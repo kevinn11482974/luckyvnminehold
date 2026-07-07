@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "holdclick",
+  "version": "${version}",
+  "name": "HoldClick",
+  "description": "Holds the attack/destroy key down while toggled on. For stationary gen mining.",
+  "authors": ["hangry"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.hangry.holdclick.HoldClickMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.11.0",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}

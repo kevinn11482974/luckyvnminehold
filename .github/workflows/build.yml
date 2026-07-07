@@ -1,0 +1,31 @@
+name: Build HoldClick
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 16
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '16'
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Upload mod jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: holdclick-jar
+          path: build/libs/*.jar
